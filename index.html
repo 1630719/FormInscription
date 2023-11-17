@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>From Inscription</title>
-    <script src="script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.rtl.css">
@@ -16,22 +15,76 @@
     <script src="bootstrap-5.3.2-dist/js/bootstrap.esm.js"></script>
     <script src="bootstrap-5.3.2-dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-<form action="index2.html" method="post">
+<form action="index2.html" method="post" id="Form" onsubmit="event.preventDefault()">
     <div class="row ms-1">
+        <!-- Rangée pleine inscription -->
         <div class="Dotted border-warning border-bottom-0 col-md-12"> <!-- Bordure en CSS pour override Bootstrap -->
             <h2 class="h2 text-center "> Inscription </h2>
         </div>
+
+        <!-- Rangée nom -->
         <div class="col-md-4 Dotted border-warning ">
             <label for="Nom"  class="form-label pt-2 "> Nom : </label>
         </div>
         <div class="col-md-4 Dotted border-warning pt-2">
-            <input type="text" name="Nom" id="Nom" class="form-control align-middle">
+            <input type="text" name="Nom" id="Nom" class="form-control align-middle" pattern="^[A-Z]{1}[a-z]{1,10}$" required>
         </div>
         <div class="col-md-4 Dotted border-warning pt-2">
-            <p class="text-danger"> Exemple d'erreur </p>
+            <p class="text-danger" id="LabelErreurNom"> Exemple d'erreur </p>
         </div>
+
+        <!-- Rangée courriel -->
+        <div class="col-md-4 Dotted border-warning ">
+            <label for="Courriel"  class="form-label pt-2 "> Courriel : </label>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <input type="email" name="Courriel" id="Courriel" class="form-control align-middle" required>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <p class="text-danger" id="LabelErreurEmail"> Exemple d'erreur </p>
+        </div>
+
+        <!-- Rangée confirmation courriel -->
+        <div class="col-md-4 Dotted border-warning ">
+            <label for="ConfirmationCourriel"  class="form-label pt-2 "> Confirmer courriel : </label>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <input type="text" name="ConfirmationCourriel" id="ConfirmationCourriel" class="form-control align-middle" required>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <p class="text-danger" id="LabelErreurConfirmationCourriel"> Exemple d'erreur </p>
+        </div>
+
+        <!-- Rangée mot de passe -->
+        <div class="col-md-4 Dotted border-warning ">
+            <label for="Password"  class="form-label pt-2 "> Mot de passe : </label>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <input type="password" name="Password" id="Password" class="form-control align-middle" required>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <p class="text-danger" id="LabelErreurPassword"> Exemple d'erreur </p>
+        </div>
+
+        <!-- Rangée confirmation mot de passe -->
+        <div class="col-md-4 Dotted border-warning ">
+            <label for="PasswordConfirmation"  class="form-label pt-2 "> Confirmer le mot de passe : </label>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <input type="password" name="PasswordConfirmation" id="PasswordConfirmation" class="form-control align-middle" required>
+        </div>
+        <div class="col-md-4 Dotted border-warning pt-2">
+            <p class="text-danger" id="LabelPasswordConfirmation"> Exemple d'erreur </p>
+        </div>
+
+        <!-- Rangée pleine bouton envoi -->
+        <div class="Dotted border-warning border-top-0 pt-2 pb-2 text-center btn-lg col-md-12"> <!-- Bordure en CSS pour override Bootstrap -->
+            <button type="submit" class="btn-danger"> AAA </button>
+        </div>
+
     </div>
 </form>
 </body>
