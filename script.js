@@ -24,29 +24,6 @@ $Form.on('submit', function ()
     const personne = new Personne($nom.val());
     sessionStorage.setItem('personne', JSON.stringify(personne))
 
-    //Validation courriel
-    if ($mail.val() === $mail_confirm.val())
-    {
-        alert("Unga")
-
-    }
-    else if ($mail.val() !== $mail_confirm.val())
-    {
-        alert("Bunga")
-    }
-
-    //Validation confirmation courriel
-    if ($mail.val() === $mail_confirm.val())
-    {
-        alert("Les emails sont identiques")
-    }
-
-    else if ($mail.val() !== $mail_confirm)
-    {
-        $label_confirm_courriel.text("Les courriels ne sont pas identiques.")
-        $mail.val("")
-        $mail_confirm.val("")
-    }
 
     //Validation mot de passe
     if ($pwrd.val() === $pwrd_confirm.val())
@@ -91,5 +68,52 @@ $nom.on('blur', function ()
         //On le met en vert
         $label_nom.addClass('text-success')
     }
+})
+
+//Validation de la validité du courriel individuel
+
+//Validation de la validité de la confirmation de courriel individuel
+
+
+//Validation de courriel et courriel confirm (si identique X, sinon Y)
+$mail_confirm.on('blur', function ()
+{
+    //Validation courriel
+    if ($mail.val() === $mail_confirm.val())
+    {
+        //Msg ok
+        $label_courriel.text("ok")
+        $label_confirm_courriel.text("ok")
+
+        //Retirer rouge
+        $label_courriel.removeClass('text-danger')
+        $label_confirm_courriel.removeClass('text-danger')
+
+        //Mettre en vert
+        $label_courriel.addClass('text-success')
+        ;$label_confirm_courriel.addClass('text-success')
+
+    }
+
+
+    if ($mail.val() !== $mail_confirm)
+    {
+        //Msg erreur
+        $label_confirm_courriel.text("Les courriels ne sont pas identiques.")
+
+        //Vider les champs
+       $mail.val("")
+       $mail_confirm.val("")
+
+        //Retirer vert sur label confirmation courriel
+        $label_confirm_courriel.removeClass('text-success')
+
+        //Remettre le label de confirmation de courriel en rouge
+        $label_confirm_courriel.addClass('text-danger')
+
+        //Cacher le label courriel de nouveau
+        $label_courriel.text("")
+    }
+
 })
 
